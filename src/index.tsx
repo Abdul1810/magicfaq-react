@@ -37,6 +37,20 @@ const MagicFAQ: React.FC<Props> = ({ uid, position = "bottom-right" }) => {
 				"*"
 			);
 		}
+		const handleKeyDown = (event: KeyboardEvent) => {
+			if (event.key === "Escape") {
+				window.parent.postMessage({ action: "close" }, "*");
+				setIsWidgetOpen(false);
+			}
+		};
+
+		if (isWidgetOpen) {
+			document.addEventListener("keydown", handleKeyDown);
+		}
+
+		return () => {
+			document.removeEventListener("keydown", handleKeyDown);
+		};
 	}, [isWidgetOpen]);
 
 	useEffect(() => {

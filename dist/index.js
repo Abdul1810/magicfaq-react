@@ -24,6 +24,18 @@ const MagicFAQ = ({ uid, position = "bottom-right" }) => {
         if (iframeRef.current) {
             (_a = iframeRef.current.contentWindow) === null || _a === void 0 ? void 0 : _a.postMessage({ action: isWidgetOpen ? "open" : "close" }, "*");
         }
+        const handleKeyDown = (event) => {
+            if (event.key === "Escape") {
+                window.parent.postMessage({ action: "close" }, "*");
+                setIsWidgetOpen(false);
+            }
+        };
+        if (isWidgetOpen) {
+            document.addEventListener("keydown", handleKeyDown);
+        }
+        return () => {
+            document.removeEventListener("keydown", handleKeyDown);
+        };
     }, [isWidgetOpen]);
     useEffect(() => {
         const handleMessage = (event) => {
