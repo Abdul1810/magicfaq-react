@@ -1,0 +1,31 @@
+{
+	"name": "@magicfaq/react",
+	"version": "1.1.0",
+	"description": "The package to interact with magicfaq in your website",
+	"main": "dist/index.js",
+	"module": "dist/index.js",
+	"types": "dist/index.d.ts",
+	"keywords": [
+		"magicfaq",
+		"allinone",
+		"easycrm"
+	],
+	"files": [
+		"dist"
+	],
+	"scripts": {
+		"build": "tsc"
+	},
+	"license": "ISC",
+	"author": "Abdul1810",
+	"type": "module",
+	"peerDependencies": {
+		"react": ">=17.0.0",
+		"react-dom": ">=17.0.0"
+	},
+	"devDependencies": {
+		"@types/react": "^19.0.0",
+		"@types/react-dom": "^19.0.0",
+		"typescript": "^5.0.0"
+	}
+}
