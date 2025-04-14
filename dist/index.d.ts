@@ -2,6 +2,8 @@ import React from "react";
 interface Props {
     uid: string;
     position?: "top-left" | "top-right" | "bottom-left" | "bottom-right";
+    tab?: "home" | "news" | "faq" | "support";
+    openOnLoad?: boolean;
 }
-declare const MagicFAQ: React.FC<Props>;
-export default MagicFAQ;
+declare const Magicdesk: React.FC<Props>;
+export default Magicdesk;

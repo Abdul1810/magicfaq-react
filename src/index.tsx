@@ -3,9 +3,11 @@ import React, { useState, useEffect, useRef } from "react";
 interface Props {
 	uid: string;
 	position?: "top-left" | "top-right" | "bottom-left" | "bottom-right";
+	tab?: "home" | "news" | "faq" | "support";
+	openOnLoad?: boolean;
 }
 
-const MagicFAQ: React.FC<Props> = ({ uid, position = "bottom-right" }) => {
+const Magicdesk: React.FC<Props> = ({ uid, position = "bottom-right", tab = "home", openOnLoad = false }) => {
 	const [isWidgetOpen, setIsWidgetOpen] = useState<boolean>(false);
 	const [isMounted, setIsMounted] = useState<boolean>(false);
 	const iframeRef = useRef<HTMLIFrameElement>(null);
@@ -67,8 +69,8 @@ const MagicFAQ: React.FC<Props> = ({ uid, position = "bottom-right" }) => {
 	return (
 		<>
 			<iframe
-				src={`https://magicfaq.vercel.app/?mid=${uid}`}
-				title="Magic FAQ Widget"
+				src={`https://widget.magicdesk.pro/?mid=${uid}&tab=${tab}&${openOnLoad ? "open" : ""}`}
+				title="Magicdesk Bubble"
 				width="100%"
 				height="100%"
 				allow="encrypted-media"
@@ -153,7 +155,7 @@ const MagicFAQ: React.FC<Props> = ({ uid, position = "bottom-right" }) => {
 	);
 };
 
-export default MagicFAQ;
+export default Magicdesk;
 
 // Usage example:
-// <MagicFAQ uid="your-unique-id" position="top-right" />
+// <Magicdesk uid="your-unique-id" position="top-right" />
